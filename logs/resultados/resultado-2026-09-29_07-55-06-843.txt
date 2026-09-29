@@ -1,0 +1,24 @@
+Gerado em: 29/09/2026 07:55:06 (Brasília, UTC-03:00)
+
+     ✓ usuário criado
+     ✓ retorna id
+
+   ✓ checks.........................: 100.00% ✓ 52908     ✗ 0    
+     data_received..................: 4.7 MB  16 kB/s
+     data_sent......................: 5.2 MB  17 kB/s
+     http_req_blocked...............: avg=2.72µs   min=0s      med=0s       max=1.1ms  p(90)=0s       p(95)=0s      
+     http_req_connecting............: avg=2.35µs   min=0s      med=0s       max=1.1ms  p(90)=0s       p(95)=0s      
+     http_req_duration..............: avg=135.8ms  min=1.87ms  med=123.47ms max=1.26s  p(90)=204.44ms p(95)=238.02ms
+       { expected_response:true }...: avg=135.8ms  min=1.87ms  med=123.47ms max=1.26s  p(90)=204.44ms p(95)=238.02ms
+     ✗ { operacao:cadastro }........: avg=135.81ms min=57.77ms med=123.47ms max=1.26s  p(90)=204.44ms p(95)=238.02ms
+     http_req_failed................: 0.00%   ✓ 0         ✗ 26455
+     ✓ { operacao:cadastro }........: 0.00%   ✓ 0         ✗ 26454
+     http_req_receiving.............: avg=25.28µs  min=0s      med=0s       max=1.51ms p(90)=0s       p(95)=0s      
+     http_req_sending...............: avg=1.03µs   min=0s      med=0s       max=1.6ms  p(90)=0s       p(95)=0s      
+     http_req_tls_handshaking.......: avg=0s       min=0s      med=0s       max=0s     p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=135.78ms min=1.35ms  med=123.44ms max=1.26s  p(90)=204.4ms  p(95)=238.02ms
+     http_reqs......................: 26455   87.848914/s
+     iteration_duration.............: avg=1.13s    min=1.05s   med=1.12s    max=2.26s  p(90)=1.2s     p(95)=1.23s   
+     iterations.....................: 26454   87.845593/s
+     vus............................: 14      min=14      max=100
+     vus_max........................: 100     min=100     max=100

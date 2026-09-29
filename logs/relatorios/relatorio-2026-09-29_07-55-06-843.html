@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatório de carga - QuickPizza</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #263238;
+      line-height: 1.5;
+    }
+
+    h1, h2 {
+      color: #17354a;
+    }
+
+    h2 {
+      margin-top: 26px;
+      font-size: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 9px;
+      border: 1px solid #ddd;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      background: #edf2f6;
+    }
+
+    .nota {
+      color: #555;
+      font-size: 13px;
+    }
+
+    @media print {
+      body {
+        margin: 0;
+      }
+
+      tr {
+        break-inside: avoid;
+      }
+
+      h2 {
+        break-after: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Relatório de teste de carga</h1>
+
+  <p>
+    QuickPizza - Cadastro de usuários<br>
+    Gerado em: 29/09/2026 07:55:06 (Brasília, UTC-03:00)
+  </p>
+
+  <h2>Objetivo e cenário</h2>
+
+  <p>
+    Avaliar POST /api/users em http://localhost:3333.
+    Configuração declarada no script:
+    <strong>100 usuários virtuais</strong>
+    por <strong>5m0s</strong>,
+    com pausa de 1
+    segundo(s) entre iterações.
+  </p>
+
+  <h2>Resultados</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Indicador</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <tr>
+      <td>p95 do cadastro (ms)</td>
+      <td>238,03</td>
+    </tr>
+  
+    <tr>
+      <td>Tempo médio do cadastro (ms)</td>
+      <td>135,81</td>
+    </tr>
+  
+    <tr>
+      <td>Maior tempo de cadastro (ms)</td>
+      <td>1267,97</td>
+    </tr>
+  
+    <tr>
+      <td>Falhas HTTP no cadastro (%)</td>
+      <td>0,00</td>
+    </tr>
+  
+    <tr>
+      <td>Checks aprovados (%)</td>
+      <td>100,00</td>
+    </tr>
+  
+    <tr>
+      <td>Iterações concluídas</td>
+      <td>26454</td>
+    </tr>
+  
+    <tr>
+      <td>Taxa média de iterações (/s)</td>
+      <td>87,85</td>
+    </tr>
+  
+    <tr>
+      <td>Tempo de execução registrado (s)</td>
+      <td>301,14</td>
+    </tr>
+  
+    <tr>
+      <td>Máximo de VUs ativos observado</td>
+      <td>100</td>
+    </tr>
+  
+    </tbody>
+  </table>
+
+  <h2>Critérios aplicados</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Métrica</th>
+        <th>Limite</th>
+        <th>Avaliação</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>Verificações funcionais</td>
+        <td>Mais de 99% de verificações aprovadas</td>
+        <td>Aprovado</td>
+      </tr>
+    
+      <tr>
+        <td>Tempo de resposta do cadastro</td>
+        <td>p95 abaixo de 200 ms</td>
+        <td>Reprovado</td>
+      </tr>
+    
+      <tr>
+        <td>Falhas HTTP no cadastro</td>
+        <td>Menos de 1% de falhas</td>
+        <td>Aprovado</td>
+      </tr>
+    
+    </tbody>
+  </table>
+
+  <h2>Análise do resultado</h2>
+
+  <p>
+      O p95 do cadastro foi de
+      <strong>238,03 ms</strong>,
+      com tempo médio de 135,81 ms.
+      A taxa de falhas HTTP foi de
+      0,00%,
+      e 100,00% das verificações passaram.
+    </p>
+
+  <p>
+    Cada cadastro executa dois checks: status 201 e retorno de id.
+    A taxa de checks considera essas verificações individualmente.
+    A taxa de iterações depende do tempo da API e da pausa entre
+    cadastros; não representa a capacidade máxima do sistema.
+  </p>
+
+  <h2>Conclusão</h2>
+
+  <p>
+    <strong>Reprovado nos critérios avaliados.</strong>
+    As amostras não atenderam a todos os critérios configurados. Os limites reprovados estão identificados na tabela.
+  </p>
+
+  <p>
+    O resumo não permite confirmar um gargalo específico.
+    Para investigar respostas lentas, é necessário comparar os tempos
+    com CPU, memória e logs do servidor.
+  </p>
+
+  <p class="nota">
+    Esta avaliação considera as amostras disponíveis.
+    Confirme no terminal que o teste terminou sem interrupção.
+    Os parâmetros declarados podem ser sobrescritos por opções externas;
+    o resumo não comprova a concorrência em cada instante.
+    Se API e k6 estiverem na mesma máquina, a disputa por recursos
+    pode influenciar os resultados.
+  </p>
+</body>
+</html>
